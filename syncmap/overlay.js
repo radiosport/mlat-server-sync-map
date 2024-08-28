@@ -336,7 +336,8 @@ function selectStation(stationInfo) {
   if (regionInfo) {
     $('#si-region').text(`${regionInfo.name} (${region})`);
     const euc = encodeURIComponent;
-    const syncUrl = new URL(`/sync/feeder.html?${euc(region)}&${euc(stationInfo.name)}`, 'https://map.adsbexchange.com/').toString();
+    const syncUrl = new URL(`/sync/feeder.html?${euc(region)}&${euc(stationInfo.name)}`, 'https://radiosport.cloudns.org').toString();
+   // 192.168.8.233
     $('#si-sync-stats-link').attr('href', syncUrl).attr('target', '_blank');
   } else {
     $('#si-region').text('Unknown');
@@ -438,7 +439,7 @@ async function initialize() {
   L.control.scale({ maxWidth: 100 }).addTo(map);
   var osm = L.tileLayer('https://map.adsbexchange.com/mapproxy/tiles/1.0.0/osm/osm_grid/{z}/{x}/{y}.png', {
     attribution: '&#169 <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>  contributors.',
-    minZoom: 2,
+    minZoom: 6,
     maxZoom: 17,
     opacity: 0.75,
   });

@@ -2,10 +2,11 @@
 
 # SPDX-License-Identifier: MIT
 
-SYNCPATH="/opt/table"
+SYNCPATH="/usr/local/share/mlat-server-sync-map/synctable"
+#SYNCPATH="/run/mlat-server"
 
 if [ ! -d $SYNCPATH ]; then
-    echo "$SYNCPATH doesn't exit, bailing"
+    echo "$SYNCPATH doesn't exist, bailing"
     exit 1
 fi
 
@@ -20,7 +21,7 @@ NEW_COUNTFILE="$SYNCPATH/totalcount.json.new"
 PID_FILE="$SYNCPATH/.skript/do_sync.pid"
 PID=$$
 
-REGIONS_URL="http://127.0.0.1/mlat-map/mirror_regions.json"
+REGIONS_URL="http://127.0.0.1/sync/mirror_regions.json"
 REGIONS_FILE="${SYNCPATH}/data/mirror_regions.json"
 
 HEADER_FILE="curl_headers.txt"
@@ -105,9 +106,9 @@ if [ ! -e $REGIONS_FILE ]; then
     fi
 fi
 
-SYNC="sync.json"
-NEWSYNC="newsync.json"
-NEWSYNC_gz="newsync.json.gz"
+SYNC="/usr/local/share/mlat-server-sync-map/synctable/sync.json"
+NEWSYNC="/usr/local/share/mlat-server-sync-map/synctable/data/newsync.json"
+NEWSYNC_gz="/usr/local/share/mlat-server-sync-map/synctable/data/newsync.json.gz"
 
 pp(){
     pp_region=$1

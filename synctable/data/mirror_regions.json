@@ -2,7 +2,7 @@
   "0" : {
 	  "region": "1A",
 	  "name": "USA",
-	  "enabled": true
+	  "enabled": false
   },
   "10" : {
 	  "region": "1B",
